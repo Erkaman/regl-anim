@@ -1,0 +1,38 @@
+{
+  "name": "regl-animation",
+  "version": "0.1.0",
+  "description": "regl animations.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "gl": "^4.0.2",
+    "glob": "^7.0.5",
+    "google-closure-compiler": "^20160713.2.0",
+    "regl": "^0.10.0",
+    "regl-recorder": "^0.2.0"
+  },
+  "scripts": {
+    "build-gallery": "node bin/gallery.js",
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erkaman/regl-recorder.git"
+  },
+  "keywords": [
+    "movie",
+    "recorder",
+    "animation",
+    "regl"
+  ],
+  "author": "Eric Arnebäck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Erkaman/regl-recorder/issues"
+  },
+  "homepage": "https://github.com/Erkaman/regl-recorder"
+}
