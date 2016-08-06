@@ -17,10 +17,8 @@ var layer1 = regl({
 
     float x;
 
-    /*
-    uv.x *= 1.4;
-    uv.y *= 1.4;
-    */
+    uv.x *= 1.6;
+    uv.y *= 1.6;
 
     x = 0.3 * sin(uv.x * 10.2 + tick * 0.002) * cos(uv.y * uv.x * 9.0 - tick * 0.002);
 
@@ -28,7 +26,7 @@ var layer1 = regl({
     x += 0.005 *sin((uv.y - tick*0.001) * 100.0);
     x += 0.002 *sin((uv.x - tick*0.001) * 100.0);
 
-    float a = 0.8*cos(x * 100.0); // * sin(x * 70.0);
+    float a = 0.8*cos(x * 100.0) * sin(x * 70.0);
 
     c = vec3(1.0, 0.0, 0.1);
     c *= a;

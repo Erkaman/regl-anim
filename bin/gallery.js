@@ -18,7 +18,7 @@ glob('anims/*.js', {}, function (err, files) {
   files.forEach(function (file) {
     console.log('file: ', file)
     var b = browserify({
-      debug: true
+      debug: false
     })
     b.add(file)
     b.bundle(function (err, bundle) {
