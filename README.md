@@ -1,6 +1,6 @@
 # I made some weird animations in WebGL
 
-Run the animations in your browsers [here]()
+Run the animations in your browsers [here](https://erkaman.github.io/posts/regl_anim.html)
 
 Using the WebGL framework
 [regl](https://github.com/mikolalysenko/regl), I made some weird
