@@ -15,21 +15,21 @@ source code if you are interested.
 <td align="center"><img src="img/vines.png" alt="vines" width="480" height="270"></td>
 </tr>
 <tr>
-<td align="center"> <a href="source">vines.js</a></td>
+<td align="center"> <a href="https://github.com/Erkaman/regl-anim/blob/master/anims/vines.js">vines.js</a></td>
 </tr>
 
 <tr>
 <td align="center"><img src="img/rainbow.png" alt="rainbow" width="480" height="270"></td>
 </tr>
 <tr>
-<td align="center"> <a href="source">rainbow.js</a></td>
+<td align="center"> <a href="https://github.com/Erkaman/regl-anim/blob/master/anims/rainbow.js">rainbow.js</a></td>
 </tr>
 
 <tr>
 <td align="center"><img src="img/circle.png" alt="circle" width="480" height="270"></td>
 </tr>
 <tr>
-<td align="center"> <a href="source">circle.js</a></td>
+<td align="center"> <a href="https://github.com/Erkaman/regl-anim/blob/master/anims/circle.js">circle.js</a></td>
 </tr>
 
 </tbody></table>
