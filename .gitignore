@@ -18,3 +18,4 @@ node_modules/*
 *.mp4
 *.jpg
 notes
+*-video/

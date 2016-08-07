@@ -1,38 +1,45 @@
-makeAnimation = require('../common.js')
+function vines (reglLib, canvasId) {
+  var createRegl = require('../common.js').createRegl
+  var runAnimation = require('../common.js').runAnimation
 
-var regl = makeAnimation(function () {
-  layer1()
-})
+  const regl = createRegl(reglLib, canvasId)
 
-var layer1 = regl({
-  frag: `
-  precision mediump float;
+  runAnimation(regl, function () {
+    layer1()
+  })
 
-  varying vec2 vUv;
+  var layer1 = regl({
+    frag: `
+    precision mediump float;
 
-  uniform float tick;
-  void main () {
-    vec2 uv = vUv;
-    vec3 c;
+    varying vec2 vUv;
 
-    float x;
+    uniform float tick;
+    void main () {
+      vec2 uv = vUv;
+      vec3 c;
 
-    /*
-    uv.x *= 1.4;
-    uv.y *= 1.4;
-    */
+      float x;
 
-    x = 0.3 * sin(uv.x * 10.2 + tick * 0.002) * cos(uv.y * uv.x * 9.0 - tick * 0.002);
+      /*
+        uv.x *= 1.4;
+        uv.y *= 1.4;
+      */
 
-    x += 0.08 *sin((uv.y) * 10.0);
-    x += 0.005 *sin((uv.y - tick*0.001) * 100.0);
-    x += 0.002 *sin((uv.x - tick*0.001) * 100.0);
+      x = 0.3 * sin(uv.x * 10.2 + tick * 0.002) * cos(uv.y * uv.x * 9.0 - tick * 0.002);
 
-    float a = 0.8*cos(x * 100.0); // * sin(x * 70.0);
+      x += 0.08 *sin((uv.y) * 10.0);
+      x += 0.005 *sin((uv.y - tick*0.001) * 100.0);
+      x += 0.002 *sin((uv.x - tick*0.001) * 100.0);
 
-    c = vec3(1.0, 0.0, 0.1);
-    c *= a;
+      float a = 0.8*cos(x * 100.0); // * sin(x * 70.0);
 
-    gl_FragColor = vec4(c, 1.0);
-  }`
-})
+      c = vec3(1.0, 0.0, 0.1);
+      c *= a;
+
+      gl_FragColor = vec4(c, 1.0);
+    }`
+  })
+}
+
+module.exports = vines

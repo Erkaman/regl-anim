@@ -1,39 +1,46 @@
-makeAnimation = require('../common.js')
+function circle (reglLib, canvasId) {
+  var createRegl = require('../common.js').createRegl
+  var runAnimation = require('../common.js').runAnimation
 
-var regl = makeAnimation(function () {
-  layer1()
-})
+  const regl = createRegl(reglLib, canvasId)
 
-var layer1 = regl({
-  frag: `
-  precision mediump float;
+  runAnimation(regl, function () {
+    layer1()
+  })
 
-  varying vec2 vUv;
+  var layer1 = regl({
+    frag: `
+    precision mediump float;
 
-  uniform float tick;
-  void main () {
-    vec2 uv = vUv;
-    uv -= 0.5;
+    varying vec2 vUv;
 
-    float disp =
-      0.05 * sin(uv.y * 50.0 + tick * 0.05)+
-      0.04 * cos(uv.x * 50.0 + tick * 0.05) * sin(uv.y * 40.0 + tick * 0.05);
+    uniform float tick;
+    void main () {
+      vec2 uv = vUv;
+      uv -= 0.5;
 
-    uv.x += disp;
+      float disp =
+        0.05 * sin(uv.y * 50.0 + tick * 0.05)+
+        0.04 * cos(uv.x * 50.0 + tick * 0.05) * sin(uv.y * 40.0 + tick * 0.05);
 
-    float r = length(uv);
-    float phi = atan(uv.y,uv.x);
+      uv.x += disp;
 
-//    r += 2.0 * sin(r * 0.1);
+      float r = length(uv);
+      float phi = atan(uv.y,uv.x);
 
-    vec3 c;
+      //    r += 2.0 * sin(r * 0.1);
 
-    c = vec3(0.0, 0.0, sin(-10.0*r)*0.6 + 0.3);
-//    c += vec3(0.0, 0.0, sin(10.0*r)*0.6 + 0.3);
+      vec3 c;
 
-    float a = 0.36;
-    c *= smoothstep(a + 0.05, a , r);
+      c = vec3(0.0, 0.0, sin(-10.0*r)*0.6 + 0.3);
+      //    c += vec3(0.0, 0.0, sin(10.0*r)*0.6 + 0.3);
 
-    gl_FragColor = vec4(c, 1.0);
-  }`
-})
+      float a = 0.36;
+      c *= smoothstep(a + 0.05, a , r);
+
+      gl_FragColor = vec4(c, 1.0);
+    }`
+  })
+}
+
+module.exports = circle

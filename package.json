@@ -17,7 +17,10 @@
   },
   "scripts": {
     "build-gallery": "node bin/gallery.js",
-    "test": "standard"
+    "test": "standard",
+    "circle": "budo --live --open anims/circle_run.js",
+    "vines": "budo --live --open anims/vines_run.js",
+    "rainbow": "budo --live --open anims/rainbow_run.js"
   },
   "repository": {
     "type": "git",

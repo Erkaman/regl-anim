@@ -1,24 +1,10 @@
-module.exports = function (cb) {
-  const canvas = document.body.appendChild(document.createElement('canvas'))
-  var context = canvas.getContext('webgl', {
-    antialias: true
-  })
-  canvas.style.width = '480px'
-  canvas.style.height = '270px'
 
-  const regl = require('regl')(context)
-
-
-/*
+module.exports.runAnimation = function (regl, cb) {
+  /*
   var createReglRecorder = require('regl-recorder')
-
-  const VIDEO_WIDTH = 480
-  const VIDEO_HEIGHT = 270
-
-  const regl = require('regl')(require('gl')(VIDEO_WIDTH, VIDEO_HEIGHT, {preserveDrawingBuffer: true, antialias: true}))
-
   var recorder = createReglRecorder(regl, 500)
 */
+
   var globalScope = regl({
     attributes: {
       position: [-2, 0, 0, -2, 2, 2]
@@ -54,4 +40,26 @@ module.exports = function (cb) {
   })
 
   return regl
+}
+
+module.exports.createRegl = function (reglLib, canvasId) {
+  var canvas = document.getElementById(canvasId)
+  if (canvas === null) {
+    canvas = document.body.appendChild(document.createElement('canvas'))
+    canvas.style.width = '480px'
+    canvas.style.height = '270px'
+  }
+  var context = canvas.getContext('webgl', {
+    antialias: false
+  })
+
+  return reglLib(context)
+
+  /*
+    // If we want to record with regl-recorder, we do this instead.
+  const VIDEO_WIDTH = 480
+  const VIDEO_HEIGHT = 270
+  regl = require('regl')(require('gl')(VIDEO_WIDTH, VIDEO_HEIGHT, {preserveDrawingBuffer: true, antialias: true}))
+  return regl
+  */
 }
